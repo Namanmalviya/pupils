@@ -42,12 +42,12 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     const fetchApiData = async () => {
       try {
-        const resUser = await fetch('/api/user');
+        const resUser = await fetch(' https://pupils.onrender.com/api/user');
         if (resUser.ok) {
           const jsonUser = await resUser.json();
           if (jsonUser.data) setUser(jsonUser.data);
         }
-        const resPosts = await fetch('/api/posts');
+        const resPosts = await fetch(' https://pupils.onrender.com/api/posts');
         if (resPosts.ok) {
           const jsonPosts = await resPosts.json();
           if (jsonPosts.data) setPosts(jsonPosts.data);
@@ -74,7 +74,7 @@ export const AppProvider = ({ children }) => {
     }));
 
     try {
-      await fetch(`/api/posts/${postId}/like`, { method: 'POST' });
+      await fetch(` https://pupils.onrender.com/api/posts/${postId}/like`, { method: 'POST' });
     } catch (e) {}
   };
 
@@ -87,7 +87,7 @@ export const AppProvider = ({ children }) => {
     }));
 
     try {
-      await fetch(`/api/posts/${postId}/bookmark`, { method: 'POST' });
+      await fetch(` https://pupils.onrender.com/api/posts/${postId}/bookmark`, { method: 'POST' });
     } catch (e) {}
   };
 
@@ -118,7 +118,7 @@ export const AppProvider = ({ children }) => {
     setIsCreatePostOpen(false);
 
     try {
-      await fetch('/api/posts', {
+      await fetch(' https://pupils.onrender.com/api/posts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(postData)
